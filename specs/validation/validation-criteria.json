@@ -1,0 +1,53 @@
+{
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "statement": "A person can sign up for an account and sign in, getting a private persistent place for their todos",
+      "stories": [1],
+      "criteria": [
+        { "id": "AC-001-a", "must": "A new person can create their own account without an admin provisioning it first", "method": "e2e" },
+        { "id": "AC-001-b", "must": "A person can sign in after creating an account", "method": "e2e" },
+        { "id": "AC-001-c", "must": "Sign-up completes without an email verification step", "method": "e2e" },
+        { "id": "AC-001-d", "must": "An unauthenticated visitor cannot view or add todos", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-002",
+      "statement": "A signed-in user can add a new todo item",
+      "stories": [2],
+      "criteria": [
+        { "id": "AC-002-a", "must": "A signed-in user can add a new todo item by entering text", "method": "e2e" },
+        { "id": "AC-002-b", "must": "A newly added todo item appears in the user's list as not done", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-003",
+      "statement": "A signed-in user can see their list of todo items, both outstanding and completed, oldest first",
+      "stories": [3],
+      "criteria": [
+        { "id": "AC-003-a", "must": "A signed-in user sees only the todo items they themselves created", "method": "e2e" },
+        { "id": "AC-003-b", "must": "The list shows both pending and completed items together, with completed ones visibly distinguished", "method": "e2e" },
+        { "id": "AC-003-c", "must": "Todo items are listed oldest-first, in the order they were added", "method": "e2e" },
+        { "id": "AC-003-d", "must": "A user's todo list persists and is still present after signing out and back in", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-004",
+      "statement": "A signed-in user can mark one of their todo items as done",
+      "stories": [4],
+      "criteria": [
+        { "id": "AC-004-a", "must": "A signed-in user can mark a pending todo item as done", "method": "e2e" },
+        { "id": "AC-004-b", "must": "A todo item marked done stays saved as done after a page reload", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-005",
+      "statement": "There is no way to edit or delete a todo item",
+      "stories": [2, 3, 4],
+      "criteria": [
+        { "id": "AC-005-a", "must": "The app offers no control to edit an existing todo item's text", "method": "manual" },
+        { "id": "AC-005-b", "must": "The app offers no control to delete a todo item, pending or done", "method": "manual" }
+      ]
+    }
+  ]
+}

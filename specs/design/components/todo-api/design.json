@@ -1,0 +1,17 @@
+{
+  "name": "todo-api",
+  "type": "service",
+  "version": "0.1.0",
+  "language": "Ballerina",
+  "buildpack": "docker",
+  "appPath": "todo-api",
+  "entrypoint": "deployment/service",
+  "exposure": "intranet",
+  "dependencies": [
+    { "kind": "platform-resource", "name": "todo-db", "resourceType": "postgres-cnpg", "parameters": {} },
+    { "kind": "platform-resource", "name": "user-auth", "resourceType": "thunder-app" }
+  ],
+  "description": "The backend for the todo app: stores each user's todo items and lets the caller add one or mark one done. Every operation resolves the caller's identity from the gateway's signed assertion and only ever reads or writes that caller's own rows. Does not support editing or deleting a todo — those are permanently out of scope.",
+  "stories": [1, 2, 3, 4],
+  "skillsPinned": ["openapi-conventions", "ballerina", "api-management", "thunder-authentication"]
+}

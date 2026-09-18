@@ -1,0 +1,26 @@
+{
+  "version": 3,
+  "permissions": [
+    {
+      "resource": "todos",
+      "component": "todo-api",
+      "description": "A user's own todo items",
+      "actions": [
+        { "handle": "read", "description": "The caller's own todo items" },
+        { "handle": "create", "description": "Add a new todo item" },
+        { "handle": "complete", "description": "Mark one of the caller's todo items done" }
+      ]
+    }
+  ],
+  "groups": [],
+  "roles": [
+    {
+      "name": "User",
+      "description": "A signed-up individual who adds and completes their own todo items.",
+      "stories": [1, 2, 3, 4],
+      "grants": ["todos:read", "todos:create", "todos:complete"],
+      "enrolment": "self-service"
+    }
+  ],
+  "testUsers": []
+}
