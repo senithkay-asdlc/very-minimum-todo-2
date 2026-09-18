@@ -1,0 +1,11 @@
+node_modules
+dist
+
+# The sandbox's local .git/info/exclude carries `core` / `core.*` for crash
+# artefacts (never committed, written per clone by the runner). That pattern
+# collides with this app's own src/authz/core.ts and mock/authz/... — plain
+# names the thunder-authentication skill's assets use verbatim in every app on
+# the platform. A .gitignore entry outranks $GIT_DIR/info/exclude, so the
+# negation below is what keeps this real source file from being silently
+# skipped by `git add`.
+!src/authz/core.ts
