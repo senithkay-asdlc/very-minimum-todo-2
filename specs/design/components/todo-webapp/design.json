@@ -7,11 +7,48 @@
   "appPath": "todo-webapp",
   "entrypoint": "deployment/web-application",
   "exposure": "internet",
-  "dependencies": [
-    { "kind": "component", "name": "todo-api" },
-    { "kind": "platform-resource", "name": "user-auth", "resourceType": "thunder-app" }
+  "stories": [
+    1,
+    2,
+    3,
+    4
   ],
   "description": "The single-page app a user signs in to. One screen: add a todo, and see the running list with pending and done items together, oldest first, toggling one to done. No editing, no deleting, no sharing between users.",
-  "stories": [1, 2, 3, 4],
-  "skillsPinned": ["wireframes", "react-webapp", "oxygen-ui-design-system", "thunder-authentication"]
+  "dependencies": [
+    {
+      "kind": "component",
+      "name": "todo-api",
+      "wiring": {
+        "endpoint": {
+          "component": "very-minimum-todo-2-todo-api",
+          "name": "http",
+          "visibility": "project",
+          "envBindings": {
+            "address": "TODO_API_URL"
+          }
+        }
+      }
+    },
+    {
+      "kind": "platform-resource",
+      "name": "user-auth",
+      "resourceType": "thunder-app",
+      "wiring": {
+        "ref": "very-minimum-todo-ca1e48d9",
+        "envBindings": {
+          "client_id": "USER_AUTH_CLIENT_ID",
+          "issuer": "USER_AUTH_ISSUER",
+          "jwks_url": "USER_AUTH_JWKS_URL",
+          "resource": "USER_AUTH_RESOURCE",
+          "scopes": "USER_AUTH_SCOPES"
+        }
+      }
+    }
+  ],
+  "skillsPinned": [
+    "wireframes",
+    "react-webapp",
+    "oxygen-ui-design-system",
+    "thunder-authentication"
+  ]
 }
