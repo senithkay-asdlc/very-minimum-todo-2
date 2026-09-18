@@ -26,9 +26,9 @@ A minimal web todo app: a user signs up and signs in, adds todo items, and marks
 - **Data scope**: todos are private per user — a user only ever sees and marks done the todos they themselves created; there is no shared or admin-visible list.
 - **Persistence**: todo items are saved in a database so they survive across sessions and devices, not just kept in the browser.
 - **No lifecycle beyond add/done**: a todo item has exactly two states — not done and done. There is no edit and no delete, matching the deliberately minimal scope.
-- **List display**: a user's todo list shows both pending and completed items together, with completed ones visibly distinguished. *assumed*
-- **List ordering**: todo items are listed oldest-first, in the order they were added. *assumed*
-- **Sign-up flow**: sign-up completes directly with no email verification step. *assumed*
+- **List display**: a user's todo list shows both pending and completed items together, with completed ones visibly distinguished.
+- **List ordering**: todo items are listed oldest-first, in the order they were added.
+- **Sign-up flow**: sign-up completes directly with no email verification step.
 
 ## Out of Scope
 
